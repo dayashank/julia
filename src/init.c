@@ -225,6 +225,8 @@ JL_DLLEXPORT void jl_atexit_hook(int exitcode)
             JL_CATCH {
                 jl_printf(JL_STDERR, "\natexit hook threw an error: ");
                 jl_static_show(JL_STDERR, jl_current_exception());
+                jl_printf(JL_STDERR, "\n");
+                jlbacktrace();
             }
         }
     }
@@ -260,6 +262,8 @@ JL_DLLEXPORT void jl_atexit_hook(int exitcode)
                 uv_unref(item->h);
                 jl_printf(JL_STDERR, "error during exit cleanup: close: ");
                 jl_static_show(JL_STDERR, jl_current_exception());
+                jl_printf(JL_STDERR, "\n");
+                jlbacktrace();
                 item = next_shutdown_queue_item(item);
             }
         }

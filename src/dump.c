@@ -2050,6 +2050,7 @@ static void jl_reinit_item(jl_value_t *v, int how, arraylist_t *tracee_list)
         jl_printf(JL_STDERR, ":\n");
         jl_static_show(JL_STDERR, jl_current_exception());
         jl_printf(JL_STDERR, "\n");
+        jlbacktrace();
     }
 }
 

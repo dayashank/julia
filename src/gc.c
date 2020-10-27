@@ -280,6 +280,7 @@ static void run_finalizer(jl_ptls_t ptls, jl_value_t *o, jl_value_t *ff)
         jl_printf(JL_STDERR, "error in running finalizer: ");
         jl_static_show(JL_STDERR, jl_current_exception());
         jl_printf(JL_STDERR, "\n");
+        jlbacktrace();
     }
 }
 
